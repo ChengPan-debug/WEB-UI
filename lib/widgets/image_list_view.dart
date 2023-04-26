@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../utils/responsive_layout.dart';
+
 class ImageListView extends StatefulWidget {
   const ImageListView({Key? key, this.startIndex = 1, this.duration = 30})
       : super(key: key);
@@ -56,7 +58,7 @@ class _ImageListViewState extends State<ImageListView> {
             return _ImageTitle(
                 image: 'assets/nfts/${widget.startIndex + index}.png');
           },
-          itemCount: 10,
+          itemCount:ResponsiveLayout.isSmallScreen(context) ? 10 : 20,
           controller: _scrollController,
           scrollDirection: Axis.horizontal,
         ),
